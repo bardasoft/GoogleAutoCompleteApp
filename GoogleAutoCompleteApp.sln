@@ -9,7 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleAutoCompleteApp.iOS",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleAutoCompleteApp.UWP", "GoogleAutoCompleteApp\GoogleAutoCompleteApp.UWP\GoogleAutoCompleteApp.UWP.csproj", "{B16D0675-16EF-48C1-B8D1-E5E5E4AD8626}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleAutoCompleteApp", "GoogleAutoCompleteApp\GoogleAutoCompleteApp\GoogleAutoCompleteApp.csproj", "{9754C69D-BF96-416F-B38B-DCCBCD459E8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoogleAutoCompleteApp", "GoogleAutoCompleteApp\GoogleAutoCompleteApp\GoogleAutoCompleteApp.csproj", "{9754C69D-BF96-416F-B38B-DCCBCD459E8E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B5DD9A50-98CF-4663-AE5D-34DE44EBE2AC}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
