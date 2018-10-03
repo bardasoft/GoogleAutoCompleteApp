@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Globalization;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 
@@ -13,12 +14,13 @@ namespace GoogleAutoCompleteApp
     {
         private string _searchText;
         private string _selectedItem;
+        private IList<string> _suggestionsList;
 
         public MainViewModel()
         {
 
         }
-        public IList<string> SuggestionsList { get; private set; } = new ObservableCollection<string>();
+        public IList<string> SuggestionsList { get => _suggestionsList; private set { _suggestionsList = value; OnPropertyChanged(); } }
         public string SelectedItem { get => _selectedItem; set { _selectedItem = value; OnPropertyChanged(); SuggestionSelected(); } }
         public string SearchText { get => _searchText; set { _searchText = value; OnPropertyChanged(); UpdateSuggestions(); } }
 
@@ -31,12 +33,10 @@ namespace GoogleAutoCompleteApp
 
         public async void UpdateSuggestions()
         {
-            var response = await SearchHelper.Search(SearchText, CultureInfo.CurrentCulture.TwoLetterISOLanguageName);
-            if (response != null)
+            var suggestions = await SearchHelper.Search(SearchText, CultureInfo.CurrentCulture.TwoLetterISOLanguageName);
+            if (suggestions != null)
             {
-                SuggestionsList.Clear();
-                foreach (var item in response)
-                    SuggestionsList.Add(item);
+                SuggestionsList = suggestions.ToList();
             }
         }
 
