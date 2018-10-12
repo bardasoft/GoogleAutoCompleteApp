@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:GoogleAutoCompleteApp"
+             xmlns:xfx="clr-namespace:Xfx;assembly=Xfx.Controls"
              x:Class="GoogleAutoCompleteApp.MainPage">
     <ContentPage.BindingContext>
         <local:MainViewModel/>
@@ -9,17 +10,9 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <Label HorizontalOptions="Center" Margin="20" Text="Google Auto Complete Example" />
-
-            <Entry Placeholder="Search..." Text="{Binding SearchText}" />
-
-            <ListView ItemsSource="{Binding SuggestionsList}" SelectedItem="{Binding SelectedItem}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding .}" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <Label HorizontalOptions="Center" Margin="20,5" Text="Google Auto Complete Example" />
+            <xfx:XfxComboBox Text="{Binding SearchText}" ItemsSource="{Binding SuggestionsList}"/>
+            
         </StackLayout>
     </ContentPage.Content>
 
